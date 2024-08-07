@@ -12,6 +12,11 @@ import { NotificationModule } from './modules/notification/notification.module';
 import { RequestFriendController } from './modules/request-friend/request-friend.controller';
 import { RequestFriendService } from './modules/request-friend/request-friend.service';
 import { RequestFriendModule } from './modules/request-friend/request-friend.module';
+import { ConversationController } from './modules/conversation/conversation.controller';
+import { ConversationModule } from './modules/conversation/conversation.module';
+import { MessageController } from './modules/message/message.controller';
+import { MessageService } from './modules/message/message.service';
+import { MessageModule } from './modules/message/message.module';
 import * as path from 'path';
 @Module({
   imports: [
@@ -26,6 +31,8 @@ import * as path from 'path';
     }),
     NotificationModule,
     RequestFriendModule,
+    ConversationModule,
+    MessageModule,
   ],
   controllers: [AppController],
   providers: [AppService],

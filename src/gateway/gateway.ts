@@ -22,6 +22,7 @@ export class MyGateway
   private likes: any[] = [];
   private notification: any[] = [];
   private Request: any[] = [];
+  private Message: any[] = [];
 
   @SubscribeMessage('comment')
   handleComment(client: Socket, data: any): void {
@@ -42,6 +43,13 @@ export class MyGateway
     this.Request.push(data);
     console.log('New request:', this.Request);
     this.server.emit('new-request', data);
+  }
+
+  @SubscribeMessage('message')
+  handleMessage(client: Socket, data: any): void {
+    this.Message.push(data);
+    console.log('New request:', this.Message);
+    this.server.emit('new-message', data);
   }
 
   @SubscribeMessage('sendNotification')
